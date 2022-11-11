@@ -17,7 +17,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private CustomUserDetService customUserDetService;
 
     private final SuccessUserHandler successUserHandler;
-    @Autowired
+
     public WebSecurityConfig(CustomUserDetService customUserDetService, SuccessUserHandler successUserHandler) {
         this.customUserDetService = customUserDetService;
         this.successUserHandler = successUserHandler;

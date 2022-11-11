@@ -12,7 +12,7 @@ import java.util.Optional;
 @Service
 public class CustomUserDetService implements UserDetailsService {
     private UserService userService;
-    @Autowired
+
     public CustomUserDetService(UserService userService) {
         this.userService = userService;
     }

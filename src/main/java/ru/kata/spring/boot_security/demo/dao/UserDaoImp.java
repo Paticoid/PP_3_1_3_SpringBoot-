@@ -26,12 +26,6 @@ public class UserDaoImp implements UserDao {
     public User show(long id) {
         return entityManager.find(User.class,id);
     }
-
-    @Override
-    public Role showRole(String name) {
-       return (Role) entityManager.createQuery("FROM Role r WHERE roleName =?1 ").setParameter(1,name).getSingleResult();
-    }
-
     @Override
     public Optional<User> getUserByName(String name) {
         Query query= entityManager.createQuery("SELECT u FROM User u JOIN FETCH u.roleList WHERE u.name = :user");
@@ -45,12 +39,6 @@ public class UserDaoImp implements UserDao {
     public void save(User user) {
         entityManager.persist(user);
     }
-
-    @Override
-    public void saveRole(Role role) {
-        entityManager.persist(role);
-    }
-
     @Override
     public void update(long id, User updateUser) {
         User user = entityManager.find(User.class,id);

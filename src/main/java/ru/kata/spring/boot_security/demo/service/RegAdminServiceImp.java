@@ -8,16 +8,18 @@ import ru.kata.spring.boot_security.demo.models.User;
 public class RegAdminServiceImp implements RegAdminService{
 
     private UserService userService;
+    private RoleService roleService;
     private PasswordEncoder passwordEncoder;
-    @Autowired
-    public RegAdminServiceImp(UserService userService, PasswordEncoder passwordEncoder) {
+
+    public RegAdminServiceImp(UserService userService, RoleService roleService, PasswordEncoder passwordEncoder) {
         this.userService = userService;
+        this.roleService = roleService;
         this.passwordEncoder = passwordEncoder;
     }
 
     public void register(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setRole(userService.showRole("ROLE_ADMIN"));
+        user.setRole(roleService.showRole("ROLE_ADMIN"));
         userService.save(user);
     }
 }

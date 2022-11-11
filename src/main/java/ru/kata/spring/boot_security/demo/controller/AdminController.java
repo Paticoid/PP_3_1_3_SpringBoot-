@@ -27,7 +27,7 @@ public class AdminController {
     private RegUserService regService;
     private RegAdminService regAdminService;
     private UserService userService;
-    @Autowired
+
     public AdminController(CustomValid customValid, RegUserService regService, RegAdminService regAdminService, UserService userService) {
         this.customValid = customValid;
         this.regService = regService;

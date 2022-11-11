@@ -10,7 +10,7 @@ import ru.kata.spring.boot_security.demo.service.CustomUserDetService;
 @Component
 public class CustomValid implements Validator {
     private  final CustomUserDetService userDetService;
-    @Autowired
+
     public CustomValid(CustomUserDetService userDetService) {
         this.userDetService = userDetService;
     }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ru.kata.spring.boot_security.demo.models.User;
 import ru.kata.spring.boot_security.demo.service.RegUserService;
+import ru.kata.spring.boot_security.demo.service.RoleService;
 import ru.kata.spring.boot_security.demo.service.UserService;
 import ru.kata.spring.boot_security.demo.util.CustomValid;
 
@@ -22,8 +23,8 @@ public class UserControlller {
     private CustomValid customValid;
     private RegUserService regUserService;
     private UserService userService;
-    @Autowired
-    public UserControlller(CustomValid customValid, RegUserService regUserService, UserService userService) {
+
+    public UserControlller(CustomValid customValid, RegUserService regUserService, UserService userService, RoleService roleService) {
         this.customValid = customValid;
         this.regUserService = regUserService;
         this.userService = userService;

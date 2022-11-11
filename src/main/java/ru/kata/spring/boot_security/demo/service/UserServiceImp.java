@@ -16,8 +16,6 @@ import java.util.Optional;
 public class UserServiceImp implements UserService {
 
     private UserDao userDao;
-
-    @Autowired
     public UserServiceImp(UserDao userDao) {
         this.userDao = userDao;
     }
@@ -31,11 +29,6 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public Role showRole(String name) {
-        return userDao.showRole(name);
-    }
-
-    @Override
     public Optional<User> getUserByName(String name) {
         return userDao.getUserByName(name);
     }
@@ -44,11 +37,7 @@ public class UserServiceImp implements UserService {
     public void save(User user) {
         userDao.save(user);
     }
-    @Override
-    @Transactional
-    public void saveRole(Role role) {
-        userDao.saveRole(role);
-    }
+
     @Override
     @Transactional
     public void update(long id,User updateUser) {
